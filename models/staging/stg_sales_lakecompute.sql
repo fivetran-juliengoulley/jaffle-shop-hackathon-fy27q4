@@ -10,7 +10,8 @@ with source as (
         "order_total",
         "ordered_at"
 
-    from {{ source('ecom', 'raw_orders') }}
+    from {{ source('ecom_lake', 'raw_orders') }}
+    where _fivetran_deleted = false
 
 
 
@@ -19,9 +20,9 @@ with source as (
 renamed as (
 
     select
-        cast("id" as integer) as sale_id,
+        "id" as sale_id,
         "ordered_at" as sale_date,
-        cast("order_total" as numeric(18, 2)) as sale_amount
+        "order_total" as sale_amount
 
     from source
 

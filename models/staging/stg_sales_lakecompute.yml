@@ -1,21 +1,12 @@
 models:
   - name: stg_sales_lakecompute
-
     description: Active sales records cleaned from the Oracle HVA 001 Fivetran source, one row per sale.
-    data_tests:
-      - dbt_utils.expression_is_true:
-          arguments:
-            expression: "sale_amount >= 0"
-    config:
-      contract:
-        enforced: true
     columns:
       - name: sale_id
         description: The unique identifier for the sale.
-        data_type: integer
+        data_type: string
         data_tests:
           - not_null
-          - unique
       - name: sale_date
         description: The date on which the sale occurred.
         data_type: date

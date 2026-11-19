@@ -1,11 +1,7 @@
-name: "jaffle-shop-hackathon-fy27q4"
+name: jaffle-shop-hackathon-fy27q4
 version: "3.0.0"
 require-dbt-version: ">=2.0.0"
 
-dbt-cloud:
-  project-id: 614355 # Put your project id here
-
-profile: csg-sa-julien-profile
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
